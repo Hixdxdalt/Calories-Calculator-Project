@@ -17,7 +17,19 @@ while True:
         else:
             print("Invalid file directories.")
 
+    elif user_input == 2:
+        weight = float(input("Insert your bodyweight in KG: "))
+        while True:
+            print("Please select one of the following:\n1.) Low fat\n2.) High fat")
+            fat = int(input("Select an option: "))
+            if fat == 1 or fat == 2:
+                break
+            else:
+                print("Invalid input, please try again.")
+        kcal = float(input("Insert your caloric goal: "))
+        C,P,F = helper.optimize_calories(weight,fat,kcal)
+        print(f"Here is the optimized macronutrient profile:\nCarbohydrates = {C:1f}\nProteins = {P:1f}\nFats = {F:1f}")
+        
     else:
         break
-
     

@@ -43,7 +43,7 @@ def merger(pathCal,pathMass):
     return merged_df
 
 
-def optimize_calores(weight,fat,kcal):
+def optimize_calories(weight,fat,kcal):
     carbs = cp.Variable(name="carbs")
     proteins = cp.Variable(name="proteins")
     fats = cp.Variable(name="fats")
@@ -51,9 +51,7 @@ def optimize_calores(weight,fat,kcal):
     fat_goal = weight * 0.5 if fat == 1 else weight * 1
     
     macros = cp.vstack([carbs, proteins, fats])
-    prob = cp.Problem(
-        objective = cp.Maximize(carbs)
-        constraints = [
+    constraints = [
             proteins >= protein_goal,
             fats >= fat_goal,
             4*carbs + 4*proteins + 9*fats == kcal,
@@ -61,7 +59,7 @@ def optimize_calores(weight,fat,kcal):
             proteins >= 0,
             fats >= 0
         ]
-    )
+    prob = cp.Problem(cp.Maximize(carbs), constraints)
     prob.solve()
 
     return [carbs.value,proteins.value,fats.value]
