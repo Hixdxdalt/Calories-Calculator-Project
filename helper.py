@@ -44,10 +44,9 @@ def optimize_calories(weight,fat,kcal):
     carbs = cp.Variable(name="carbs")
     proteins = cp.Variable(name="proteins")
     fats = cp.Variable(name="fats")
-    protein_goal = weight * 1.6
-    fat_goal = weight * 0.5 if fat == 1 else weight * 1
-    
-    macros = cp.vstack([carbs, proteins, fats])
+    protein_goal = weight * 1.6 #minimum protein
+    fat_goal = weight * 0.5 if fat == 1 else weight * 1 # minimum fat
+
     constraints = [
             proteins >= protein_goal,
             fats >= fat_goal,
