@@ -4,7 +4,7 @@ import os
 import helper
 
 while True:
-    print("Welcome to Calorie Calculator.\n1.) Merge calories with weight into CSV\n2.) Find macronutrients based on caloric goal.\n3.) Fit observed weight trends\n4.) Find ODE and integration\n5.) Project future weight changes\n6.) Exit")
+    print("Welcome to Calorie Calculator.\n1.) Merge calories with weight into CSV\n2.) Find macronutrients based on caloric goal.\n3.) Fit observed weight trends\n4.) Find TDEE through ODE and integration\n5.) Project future weight changes\n6.) Exit")
     user_input = int(input("select an option: "))
 
     if user_input == 1:
@@ -29,7 +29,7 @@ while True:
         kcal = float(input("Insert your caloric goal: "))
         C,P,F = helper.optimize_calories(weight,fat,kcal)
         print(f"Here is the optimized macronutrient profile:\nCarbohydrates = {C:1f}\nProteins = {P:1f}\nFats = {F:1f}")
-        
+
     else:
         break
     

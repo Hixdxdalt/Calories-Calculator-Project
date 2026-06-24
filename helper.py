@@ -37,9 +37,6 @@ def merger(pathCal,pathMass):
     # Forward fill weights
     merged_df["Weight"] = merged_df["Weight"].ffill()
 
-    # Save
-    #merged_df.to_csv("Finale.csv", index=False)
-
     return merged_df
 
 
