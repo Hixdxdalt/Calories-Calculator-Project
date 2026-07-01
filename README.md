@@ -1,10 +1,4 @@
-﻿# Calories-Calculator-Project
-# TDEE Estimator — Numerical Methods Approach
-
-A numerical computing pipeline that estimates Total Daily Energy Expenditure (TDEE)
-across distinct dietary phases (bulk/cut) using personal weight and caloric intake data.
-
-## Overview
+﻿## Overview
 Rather than relying on static TDEE formulas, this project treats TDEE estimation as
 a data-driven numerical problem:
 
@@ -14,6 +8,8 @@ a data-driven numerical problem:
   numerical differentiation (5-point stencil) to find slope sign changes
 - **Piecewise Regression** — fits least-squares regression (solved via normal
   equations) to each detected phase to estimate weight trend and back-calculate TDEE
+- **Nonlinear Curve Fitting** — fits a curved model across the full trajectory to
+  capture the smooth, non-linear nature of weight change (accounting for adaptive TDEE)
 
 ## Methods Used
 - Linear & cubic spline interpolation
@@ -21,6 +17,4 @@ a data-driven numerical problem:
 - Numerical differentiation (finite difference)
 - Least-squares regression (normal equations)
 - Piecewise regression across phase segments
-
-## Tech Stack
-Python · NumPy · Pandas · SciPy · Matplotlib
+- Nonlinear curve fitting
